@@ -4,12 +4,8 @@ const app = express();
 const cors = require('cors');
 const mongoose = require('mongoose');
 const path = require("path");
-const bodyParser = require('body-parser');
-//DB Config
-const db = require('./src/keys').mongoUrI;
-const duser = require('./src/keys').mongoUser;
-const dpass = require('./src/keys').mongoPassword;
-const dbase = require('./src/keys').mongoDatabase;
+
+
 
 
 //routes
@@ -27,7 +23,6 @@ env.config();
 //connect to Mongo
 mongoose
 .connect(`mongodb+srv://${process.env.User}:${process.env.Password}@cluster0.gjsj8.mongodb.net/${process.env.Database}?retryWrites=true&w=majority`,
-// .connect(`${process.env.URI}`,
 { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true })
 .then(() => console.log('MongoDB Connected...'))
 .catch(err => console.log(err));
