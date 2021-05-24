@@ -22,6 +22,7 @@ env.config();
 
 //connect to Mongo
 mongoose
+// .connect(`mongodb://localhost:27017/logistics`,
 .connect(`mongodb+srv://${process.env.User}:${process.env.Password}@cluster0.gjsj8.mongodb.net/${process.env.Database}?retryWrites=true&w=majority`,
 { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true })
 .then(() => console.log('MongoDB Connected...'))
