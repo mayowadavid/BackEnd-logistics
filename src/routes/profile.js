@@ -19,6 +19,6 @@ router.post('/profile/create', upload.single('profileImage'), createProfile);
 
 router.get('/profile/get', getProfiles);
 
-router.post('/profile/:id', upload.single('profileImage'), updateProfile);
+router.post('/profile/update', upload.single('profileImage'), updateProfile);
 
 module.exports = router;

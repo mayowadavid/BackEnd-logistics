@@ -85,7 +85,6 @@ exports.getRequests = (req, res) => {
 exports.updateRequests = (req, res) => {
      conditions = {_id: req.params.id};
      Request.findById(conditions, function(error, request) {
-        // if(error) return res.status(400).json({error});
         if(error) return res.status(400).json({error})
         if(request){
         
