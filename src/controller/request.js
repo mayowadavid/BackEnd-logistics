@@ -28,9 +28,9 @@ exports.createRequest = (req, res) => {
                             
                                     let requestImages = [];
                             
-                                    if(req.files.length > 0){
-                                       requestImages = req.files.map(file => {
-                                            return {img: file.filename}
+                                    if(requestImages.length > 0){
+                                       requestImages = requestImages.map(url => {
+                                            return {img: url}
                                         })
                                     }
                                     

@@ -94,21 +94,21 @@ exports.updateProfile = (req, res) => {
                         lastName,
                         email,
                         phoneNumber,
-                        address
+                        address,
+                        profileImage
                         } = req.body
                        
-                       let {filename} = req.file;
                         
-                           profile.firstName = firstName;
-                           profile.lastName = lastName;
-                           profile.email = email;
-                           profile.phoneNumber = phoneNumber;
-                           profile.profileImage == filename ? profile.profileImage = profile.profileImage: profile.profileImage = filename;
-                           profile.address = address;
+                           profile.firstName = firstName !== "" ? firstName: profile.firstName;
+                           profile.lastName = lastName !== "" ? lastName: profile.lastName;
+                           profile.email = email !== "" ? email: profile.email;
+                           profile.phoneNumber = phoneNumber !== "" ? phoneNumber: profile.phoneNumber;
+                           profile.profileImage = profileImage !== " " ? profileImage : profile.profileImage;
+                           profile.address = address !== "" ? address: profile.address;
             
                            profile.save((error, updatedProfile)=> {          
                                if(error) return res.status(400).json({error});
-                               if(updatedProfile) return res.status(201).json({updatedProfile, files: req.file});
+                               if(updatedProfile) return res.status(201).json({updatedProfile});
                            })
 
                 }
