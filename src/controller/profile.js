@@ -99,12 +99,12 @@ exports.updateProfile = (req, res) => {
                         } = req.body
                        
                         
-                           profile.firstName = firstName !== "" ? firstName: profile.firstName;
-                           profile.lastName = lastName !== "" ? lastName: profile.lastName;
-                           profile.email = email !== "" ? email: profile.email;
-                           profile.phoneNumber = phoneNumber !== "" ? phoneNumber: profile.phoneNumber;
-                           profile.profileImage = profileImage !== " " ? profileImage : profile.profileImage;
-                           profile.address = address !== "" ? address: profile.address;
+                           profile.firstName = firstName !== null ? firstName: profile.firstName;
+                           profile.lastName = lastName !== null ? lastName: profile.lastName;
+                           profile.email = email !== null ? email: profile.email;
+                           profile.phoneNumber = phoneNumber !== null ? phoneNumber: profile.phoneNumber;
+                           profile.profileImage = profileImage !== null ? profileImage : profile.profileImage;
+                           profile.address = address !== null ? address: profile.address;
             
                            profile.save((error, updatedProfile)=> {          
                                if(error) return res.status(400).json({error});
