@@ -21,7 +21,7 @@ const requestSchema = new mongoose.Schema({
         required: true
     },
     requestImages: [
-        {img: {type: String } }
+        {cloudUrl: {type: String } }
     ],
     otherItems: {
         type: Boolean
