@@ -56,13 +56,12 @@ exports.createProfile = (req, res) => {
 }
 
 exports.getProfiles = (req, res) => {
-   
     
     if(req.headers.authorization){
         const token = req.headers.authorization.split(" ")[1];
         const user = jwt.verify(token, process.env.JWT_SECRET);
-        if(user){
-            Profile.findOne({userId: user._id})
+        if(user.role == 'admin'){
+            Profile.find({})
             .exec((error, profile) => {
                 if(error) return res.status(400).json({error});
                 if(profile){ return res.status(201).json({profile, user})}
@@ -79,11 +78,10 @@ exports.getProfiles = (req, res) => {
 
 exports.updateProfile = (req, res) => {
    
-    
     if(req.headers.authorization){
         const token = req.headers.authorization.split(" ")[1];
         const user = jwt.verify(token, process.env.JWT_SECRET);
-        if(user){
+        if(user.role == 'admin'){
             Profile.findOne({userId: user._id})
             .exec((error, profile) => {
                 if(error) return res.status(400).json({error});
